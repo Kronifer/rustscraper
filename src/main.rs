@@ -2,7 +2,7 @@ extern crate clap;
 
 use clap::{Arg, App, SubCommand};
 
-fn main() {
+async fn main() {
     let matches = App::new("Scraper")
         .version("1.0.0")
         .author("Kronifer")
