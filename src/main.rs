@@ -4,7 +4,7 @@ use clap::{Arg, App, SubCommand};
 
 async fn main() {
     let matches = App::new("Scraper")
-        .version("1.0.0")
+        .version("1.0")
         .author("Kronifer")
         .about("Scrapes a website")
         .arg(Arg::with_name("website")
