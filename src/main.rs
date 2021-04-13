@@ -1,7 +1,6 @@
-extern crate clap;
-
 use clap::{Arg, App, SubCommand};
 
+#[tokio::main]
 async fn main() {
     let matches = App::new("Scraper")
         .version("1.0")
@@ -13,9 +12,13 @@ async fn main() {
             .help("Sets website to scrape")
             .required(true)
             .takes_value(true))
-
         .get_matches();
 
     let w = matches.value_of("website").unwrap();
-    println!("Website: {}", w);
+    let body = reqwest::get(w)
+        .await
+        .unwrap()
+        .text()
+        .await;
+    println!("{:?}", body);
 }
